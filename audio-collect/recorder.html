@@ -24,7 +24,7 @@
   <nav class="teal lighten-3" role="navigation">
     <div class="nav-wrapper container">
         <!-- logo -->
-      <a href="#" id="logo-container" class="brand-logo">Record</a>
+      <a href="#" id="logo-container" class="brand-logo">Record*50</a>
 
         <!-- links -->
       <ul class="right hide-on-med-and-down">
@@ -173,7 +173,7 @@
                 for (let j = 0; j < rec.buffer[i].length; j++)
                     buffer.push(rec.buffer[i][j]);
             render(transformData(buffer));
-        }, 10000)
+        }, 5000)
     }
 
     var recblob={};
@@ -307,7 +307,7 @@
 
       // set domain for axis
         xScale.domain([xMin, xMax]);
-        let yRange = Math.max(-yMin, yMax, 20000);
+        let yRange = Math.max(-yMin, yMax, 2);
       yScale.domain([-yRange, yRange]);
 
       // create axis scale
