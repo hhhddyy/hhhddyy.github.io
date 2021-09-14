@@ -59,7 +59,7 @@
                 <a id="startPlay-button" onclick="playCache()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">play_voice</i></a>
             </div>
             <div class="col s4">
-                <a id="start-button" onclick="start()" class="btn-floating btn-large waves-effect waves-light red disabled",style="display:none"><i class="material-icons">keyboard_voice</i></a>
+                <a id="start-button" onclick="stop()" class="btn-floating btn-large waves-effect waves-light red ",style="display:none,visibility: hidden"><i class="material-icons">keyboard_voice</i></a>
             </div>
             <div class="col s4">
                 <a id="play-button" onclick="play()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">hearing</i></a>
@@ -105,6 +105,10 @@
     {
         recplay(1);
         document.getElementById("upload-button").className = "btn-floating btn-large waves-effect waves-light red";
+    }
+    function stop()
+    {
+        audio.pause();
     }
 
     function upload()
@@ -156,7 +160,7 @@
         }
         setTimeout(function(){
             recstop();
-            audio.stop();
+            stop();
             document.getElementById("start-button").className = "btn-floating btn-large waves-effect waves-light red";
             document.getElementById("play-button").className = "btn-floating btn-large waves-effect waves-light red";
             // update wave
