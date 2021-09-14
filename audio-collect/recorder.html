@@ -207,12 +207,12 @@
             };
             var wav=Recorder[o.set.type+"2wav"];
             if(wav){
-                logmsg("正在转码成wav...");
+                alert("正在转码成wav...");
                 wav(o.blob,function(blob){
                     end(blob);
-                     logmsg("已转码成wav播放");
+                     alert("已转码成wav播放");
                 },function(msg){
-                    logmsg("转码成wav失败："+msg);
+                    alert("转码成wav失败："+msg);
                 });
             }else{
                 end(o.blob);
