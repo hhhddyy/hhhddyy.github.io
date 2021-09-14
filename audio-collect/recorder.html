@@ -24,7 +24,7 @@
   <nav class="teal lighten-3" role="navigation">
     <div class="nav-wrapper container">
         <!-- logo -->
-      <a href="#" id="logo-container" class="brand-logo">Rec</a>
+      <a href="#" id="logo-container" class="brand-logo">Record</a>
 
         <!-- links -->
       <ul class="right hide-on-med-and-down">
@@ -75,7 +75,7 @@
 
 <script>
     document.getElementById("start-button").style.visibility = "hidden";
-    //document.getElementById("upload-button").style.visibility = "hidden";
+    document.getElementById("upload-button").style.visibility = "hidden";
     // compatible browser?
 
     if (Recorder.Support()){
@@ -206,12 +206,10 @@
             var end=function(blob){
             
                 audio.src=URL.createObjectURL(blob);
-                
+                var name = new Date().toISOString();
+                audio.title = name+".wav";
                 audio.play();
-                var downA=document.createElement("A");
-                downA.href=audio.src;
-
-            downA.download=name+".wav";
+                
             };
             var wav=Recorder[o.set.type+"2wav"];
             if(wav){
