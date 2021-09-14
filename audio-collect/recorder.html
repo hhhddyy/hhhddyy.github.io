@@ -73,7 +73,9 @@
     <audio class="recPlay" style="width:100%"></audio>
 
 <script>
+    document.getElementById("start-button").style.visibility = "hidden";
     // compatible browser?
+
     if (Recorder.Support()){
         M.toast({html: "Compatible browser", classes: 'rounded'});
     } else {
