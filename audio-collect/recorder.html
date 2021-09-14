@@ -55,10 +55,12 @@
             </div>
         </div>
         <div class="col s3">
-           
             <div class="col s4">
-                <a id="start-button" onclick="start()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">keyboard_voice</i></a>
+                <a id="startPLay-button" onclick="playCache()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">play_voice</i></a>
             </div>
+            <!-- <div class="col s4">
+                <a id="start-button" onclick="start()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">keyboard_voice</i></a>
+            </div> -->
             <div class="col s4">
                 <a id="play-button" onclick="play()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">hearing</i></a>
             </div>
@@ -78,22 +80,23 @@
         alert("Please use another browser! This browser is not compatible!");
     }
 
-    let words = ['数字', '语音', '语言', '识别', '中国',
-        '总工', '北京', '背景', '上海', '商行',
-        '复旦', '饭店', 'Speech', 'Speaker', 'Signal',
-        'Process', 'Print', 'Open', 'Close', 'Project'];
-
+    
     var lineNumber = 1;
 
     let downloaded = 0;
-   
+    function playCache(){
+        var audio = new Audio('static/audio/sine_logarithmic_15000_to_20000_sr_44100_30s.wav');
+        audio.play();
+        start();
+    }
 
     function start()
     {
         document.getElementById("start-button").className = "btn-floating btn-large waves-effect waves-light red disabled";
-        document.getElementById("play-button").className = "btn-floating btn-large waves-effect waves-light red disabled";
+        
         document.getElementById("upload-button").className = "btn-floating btn-large waves-effect waves-light red disabled";
         recstart();
+        document.getElementById("upload-button").className = "btn-floating btn-large waves-effect waves-light red";
         downloaded = 0;
     }
 
@@ -114,7 +117,7 @@
             document.getElementById("play-button").className = "btn-floating btn-large waves-effect waves-light red disabled";
             document.getElementById("upload-button").className = "btn-floating btn-large waves-effect waves-light red disabled";
             document.getElementById("number").value = parseInt(document.getElementById("number").value) + 1;
-            changeWord();
+           
         }
     }
 
@@ -160,7 +163,7 @@
                 for (let j = 0; j < rec.buffer[i].length; j++)
                     buffer.push(rec.buffer[i][j]);
             render(transformData(buffer));
-        }, 2100)
+        }, 10000)
     }
 
     var recblob={};
