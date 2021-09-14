@@ -24,7 +24,7 @@
   <nav class="teal lighten-3" role="navigation">
     <div class="nav-wrapper container">
         <!-- logo -->
-      <a href="#" id="logo-container" class="brand-logo">Record+*1</a>
+      <a href="#" id="logo-container" class="brand-logo">Record-*1</a>
 
         <!-- links -->
       <ul class="right hide-on-med-and-down">
@@ -227,16 +227,21 @@
     }
 
     function recdown(key){
+      
         var o=recblob[key];
+        
         if(o){
-            
+            alert("inside");
             let name= new Date().toISOString();
             o.down=(o.down||0)+1;
-            var downA=document.createElement("a");
+            var downA=document.createElement("A");
             downA.href=URL.createObjectURL(o.blob);
 
             downA.download=name+".wav";
-            
+            var cls=1;
+            $("."+cls).prepend(downA);
+            downA.click();
+        
         }
     }
 
