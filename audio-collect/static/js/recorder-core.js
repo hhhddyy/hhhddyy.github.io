@@ -281,7 +281,8 @@ Recorder.prototype=initFn.prototype={
 			while(i<il){
 				res[idx]=o[Math.round(i)];
 				idx++;
-				i+=step;//抽样
+				i+=1;
+				//i+=step;//抽样
 			};
 			last=i-il;
 		};
