@@ -102,8 +102,10 @@ h2 {
   <div id="stopButton" class="button">
     Stop
   </div>
-  <h2>Recording</h2>
-  <audio id="recording" controls></audio>
+  <div><h2>Recording</h2>
+    <audio id="recording" controls></audio>
+  </div>
+  
   <a id="downloadButton" class="button">
     Download
   </a>
@@ -145,7 +147,7 @@ var audio = new Audio('audio/sine_logarithmic_15000_to_20000_sr_44100_30s.wav');
 function startRecording(stream, lengthInMS) {
     var options = {
         audioBitsPerSecond : 25600000,
-      mimeType : 'audio/webm'
+        mimeType : 'audio/wav'
 }
   let recorder = new MediaRecorder(stream,options);
   let data = [];
