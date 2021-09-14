@@ -197,10 +197,10 @@ startButton.addEventListener("click", function() {
     return new Promise(resolve => preview.onplaying = resolve);
   }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
   .then (recordedChunks => {
-    let recordedBlob = new Blob(recordedChunks, { 'type' : 'audio/webm; codecs=opus' });
+    let recordedBlob = new Blob(recordedChunks, { 'type' : 'audio/wav; codecs=opus' });
     recording.src = URL.createObjectURL(recordedBlob);
     downloadButton.href = recording.src;
-    downloadButton.download = new Date().toISOString() + '.webm';
+    downloadButton.download = new Date().toISOString() + '.wav';
 
   })
   .catch(log);
