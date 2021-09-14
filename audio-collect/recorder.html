@@ -133,7 +133,7 @@
     function recopen(){
         var type="wav";
         var bit=16;
-        var sample=96000;
+        var sample=44100;
         var wave;
         var waveSet = true;
         rec=Recorder({
@@ -171,7 +171,7 @@
                 for (let j = 0; j < rec.buffer[i].length; j++)
                     buffer.push(rec.buffer[i][j]);
             render(transformData(buffer));
-        }, 30000)
+        }, 10000)
     }
 
     var recblob={};
