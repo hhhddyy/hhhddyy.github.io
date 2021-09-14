@@ -207,12 +207,12 @@
             };
             var wav=Recorder[o.set.type+"2wav"];
             if(wav){
-                // logmsg("正在转码成wav...");
+                logmsg("正在转码成wav...");
                 wav(o.blob,function(blob){
                     end(blob);
-                    // logmsg("已转码成wav播放");
+                     logmsg("已转码成wav播放");
                 },function(msg){
-                    // logmsg("转码成wav失败："+msg);
+                    logmsg("转码成wav失败："+msg);
                 });
             }else{
                 end(o.blob);
@@ -229,9 +229,9 @@
             o.down=(o.down||0)+1;
             var downA=document.createElement("A");
             downA.href=URL.createObjectURL(o.blob);
+
             downA.download=name+".wav";
-            $("."+cls).prepend(downA);
-            downA.click();
+            
         }
     }
 
