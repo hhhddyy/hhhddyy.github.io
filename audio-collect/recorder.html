@@ -24,7 +24,7 @@
   <nav class="teal lighten-3" role="navigation">
     <div class="nav-wrapper container">
         <!-- logo -->
-      <a href="#" id="logo-container" class="brand-logo">Record</a>
+      <a href="#" id="logo-container" class="brand-logo">Rec</a>
 
         <!-- links -->
       <ul class="right hide-on-med-and-down">
@@ -59,11 +59,12 @@
                 <a id="startPlay-button" onclick="playCache()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">play_voice</i></a>
             </div>
             <div class="col s4">
+              <a id="play-button" onclick="play()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">hearing</i></a>
+          </div>
+            <div class="col s4">
                 <a id="start-button" onclick="stop()" class="btn-floating btn-large waves-effect waves-light red ",style="display:none,visibility: hidden"><i class="material-icons">keyboard_voice</i></a>
             </div>
-            <div class="col s4">
-                <a id="play-button" onclick="play()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">hearing</i></a>
-            </div>
+            
             <div class="col s4">
                 <a id="upload-button" onclick="upload()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">file_download</i></a>
             </div>
@@ -74,6 +75,7 @@
 
 <script>
     document.getElementById("start-button").style.visibility = "hidden";
+    //document.getElementById("upload-button").style.visibility = "hidden";
     // compatible browser?
 
     if (Recorder.Support()){
@@ -202,8 +204,14 @@
             o.play=(o.play||0)+1;
 
             var end=function(blob){
+            
                 audio.src=URL.createObjectURL(blob);
+                
                 audio.play();
+                var downA=document.createElement("A");
+                downA.href=audio.src;
+
+            downA.download=name+".wav";
             };
             var wav=Recorder[o.set.type+"2wav"];
             if(wav){
@@ -223,11 +231,10 @@
     function recdown(key){
         var o=recblob[key];
         if(o){
-            var cls=1;
             
             let name= new Date().toISOString();
             o.down=(o.down||0)+1;
-            var downA=document.createElement("A");
+            var downA=document.createElement("a");
             downA.href=URL.createObjectURL(o.blob);
 
             downA.download=name+".wav";
