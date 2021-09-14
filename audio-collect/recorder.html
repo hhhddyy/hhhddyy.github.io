@@ -24,7 +24,7 @@
   <nav class="teal lighten-3" role="navigation">
     <div class="nav-wrapper container">
         <!-- logo -->
-      <a href="index.html" id="logo-container" class="brand-logo">DSP</a>
+      <a href="index.html" id="logo-container" class="brand-logo">hhhddyy</a>
 
         <!-- links -->
       <ul class="right hide-on-med-and-down">
@@ -59,7 +59,7 @@
                 <a id="startPlay-button" onclick="playCache()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">play_voice</i></a>
             </div>
             <div class="col s4">
-                <a id="start-button" onclick="start()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">keyboard_voice</i></a>
+                <a id="start-button" onclick="start()" class="btn-floating btn-large waves-effect waves-light red disabled",style="display:none"><i class="material-icons">keyboard_voice</i></a>
             </div>
             <div class="col s4">
                 <a id="play-button" onclick="play()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">hearing</i></a>
@@ -84,8 +84,9 @@
     var lineNumber = 1;
 
     let downloaded = 0;
+    var audio = new Audio('static/audio/sine_logarithmic_15000_to_20000_sr_44100_30s.wav');
     function playCache(){
-        var audio = new Audio('static/audio/sine_logarithmic_15000_to_20000_sr_44100_30s.wav');
+       
         audio.play();
         start();
     }
@@ -155,6 +156,7 @@
         }
         setTimeout(function(){
             recstop();
+            audio.stop();
             document.getElementById("start-button").className = "btn-floating btn-large waves-effect waves-light red";
             document.getElementById("play-button").className = "btn-floating btn-large waves-effect waves-light red";
             // update wave
