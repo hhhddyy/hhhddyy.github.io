@@ -187,18 +187,19 @@ Recorder.prototype=initFn.prototype={
 			*/
 			power/=size;
 			var powerLevel;
-			if(power<1251){//1250的结果10%，更小的音量采用线性取值
+			/*if(power<1251){//1250的结果10%，更小的音量采用线性取值
 				powerLevel=Math.round(power/1250*10);
 			}else{
 				powerLevel=Math.round(Math.min(100,Math.max(0,(1+Math.log10(power/10000))*100)));
-			}
+			}*/
 			
 			var bufferSampleRate=This.srcSampleRate;
 			var duration=Math.round(This.recSize/bufferSampleRate*1000);
 			
 			clearTimeout(onInt);
 			onInt=setTimeout(function(){
-				set.onProcess(buffer,powerLevel,duration,bufferSampleRate);
+				set.onProcess(buffer,power,duration,bufferSampleRate);
+				//set.onProcess(buffer,powerLevel,duration,bufferSampleRate);
 			});
 		};
 		

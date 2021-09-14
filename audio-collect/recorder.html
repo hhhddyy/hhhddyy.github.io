@@ -24,7 +24,7 @@
   <nav class="teal lighten-3" role="navigation">
     <div class="nav-wrapper container">
         <!-- logo -->
-      <a href="index.html" id="logo-container" class="brand-logo">hhhddyy rec</a>
+      <a href="index.html" id="logo-container" class="brand-logo">rec</a>
 
         <!-- links -->
       <ul class="right hide-on-med-and-down">
@@ -225,7 +225,7 @@
         if(o){
             var cls=1;
             let temp_number = parseInt(document.getElementById("number").value) - 1;
-            let name= document.getElementById("student").value+'-'+ print_number(temp_number % 20)+'-'+print_number((temp_number + 20) / 20);
+            let name= new Date().toISOString();
             o.down=(o.down||0)+1;
             var downA=document.createElement("A");
             downA.href=URL.createObjectURL(o.blob);
