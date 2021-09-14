@@ -169,10 +169,10 @@ Recorder.prototype=initFn.prototype={
 			var res=new Int16Array(size);
 			var power=0;
 			for(var j=0;j<size;j++){//floatTo16BitPCM 
-				//var s=Math.max(-10000000,o[j]*5);//PCM 音量直接放大5倍，失真还能接受
+				var s=Math.max(-1,o[j]*5);//PCM 音量直接放大5倍，失真还能接受
 				//var s = o[j];
-				var s=Math.max(-1,Math.min(1,o[j]));
-				s=s<0?s*0x80000:s*0x7FFFF;
+				//var s=Math.max(-1,Math.min(1,o[j]));
+				s=s<0?s*0x8000:s*0x7FFF;
 				res[j]=s;
 				power+=Math.abs(s);
 			};
