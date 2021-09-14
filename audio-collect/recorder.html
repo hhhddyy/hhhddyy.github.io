@@ -131,7 +131,7 @@
     function recopen(){
         var type="wav";
         var bit=16;
-        var sample=48000;
+        var sample=480000;
         var wave;
         var waveSet = true;
         rec=Recorder({
@@ -187,10 +187,7 @@
         }
     }
 
-    function print_number(num){
-        num = parseInt(num);
-        return (num < 10) ? ('0'+num.toString()): num.toString();
-    }
+ 
 
     function recplay(key){
         var o=recblob[key];
