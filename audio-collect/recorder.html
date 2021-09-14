@@ -56,7 +56,7 @@
         </div>
         <div class="col s3">
             <div class="col s4">
-                <a id="startPLay-button" onclick="playCache()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">play_voice</i></a>
+                <a id="startPlay-button" onclick="playCache()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">play_voice</i></a>
             </div>
             <!-- <div class="col s4">
                 <a id="start-button" onclick="start()" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="material-icons">keyboard_voice</i></a>
@@ -143,7 +143,7 @@
         });
         rec.open(function(){
             wave=Recorder.WaveView({elem:".recwave"});
-            document.getElementById("start-button").className = "btn-floating btn-large waves-effect waves-light red";
+            document.getElementById("startPlay-button").className = "btn-floating btn-large waves-effect waves-light red";
         },function(e,isUserNotAllow){
             alert("Recording is not allowed! Please grant access!");
         });
